@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhil Medabalimi | Portfolio</title>
+    
+    <!-- Fonts: Sora (Headings) + IBM Plex Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons for high performance rendering -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        heading: ['Sora', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e', // Rose/Coral Accent
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                        },
+                        neutral: {
+                            950: '#090d16', // Ultra deep space background
+                            900: '#0f172a', // Card bg
+                            800: '#1e293b', // Subcard/Border
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Micro-Interactions & Styling -->
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #090d16;
+            color: #f1f5f9;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sora', sans-serif;
+        }
+        /* Custom scrollbar to keep layout premium */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f43f5e;
+        }
+        /* Active nav line tracking style */
+        .nav-active {
+            color: #f43f5e !important;
+        }
+        .nav-active .nav-indicator {
+            width: 3rem !important;
+            background-color: #f43f5e !important;
+        }
+    </style>
+
+    <!-- Initials-based SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Sora, sans-serif' font-weight='bold' font-size='38' fill='%23f43f5e'%3EAM%3C/text%3E%3C/svg%3E">
+</head>
+<body class="selection:bg-brand-500 selection:text-white leading-relaxed antialiased">
+
+    <div class="min-h-screen flex flex-col lg:flex-row max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- SIDEBAR PANEL (Sticky Desktop, top stack on Mobile) -->
+        <header class="lg:sticky lg:top-0 lg:h-screen lg:w-5/12 flex flex-col justify-between py-12 lg:py-24 z-10 lg:pr-8">
+            <div class="flex flex-col space-y-6">
+                <!-- Branding Header -->
+                <div>
+                    <div class="inline-flex items-center space-x-2 text-brand-500 font-semibold uppercase tracking-widest text-xs mb-3 bg-brand-500/10 px-3 py-1.5 rounded-full border border-brand-500/20">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                        </span>
+                        <span>Available for projects</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-2">
+                        Akhil Medabalimi
+                    </h1>
+                    <p class="text-lg sm:text-xl font-medium text-slate-300">
+                        Full-Stack Developer (MERN)
+                    </p>
+                    <p class="text-sm text-slate-400 font-mono mt-1">
+                        B.Tech Student • ID: 23R11A05C6
+                    </p>
+                </div>
+
+                <!-- Bio Summary -->
+                <p class="text-slate-400 max-w-sm text-sm sm:text-base leading-relaxed">
+                    Computer Science & Engineering undergraduate passionate about problem-solving, clean architecture, and building performant web experiences.
+                </p>
+
+                <!-- Sticky Navigation Menu (Hidden on mobile for seamless reading) -->
+                <nav class="hidden lg:flex flex-col space-y-4 pt-8">
+                    <a href="#about" class="group flex items-center py-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 transition-all duration-300 hover:text-white nav-link" data-target="about">
+                        <span class="nav-indicator mr-4 h-[1px] w-8 bg-slate-600 transition-all duration-300 group-hover:w-16 group-hover:bg-white"></span>
+                        About
+                    </a>
+                    <a href="#education" class="group flex items-center py-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 transition-all duration-300 hover:text-white nav-link" data-target="education">
+                        <span class="nav-indicator mr-4 h-[1px] w-8 bg-slate-600 transition-all duration-300 group-hover:w-16 group-hover:bg-white"></span>
+                        Education
+                    </a>
+                    <a href="#skills" class="group flex items-center py-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 transition-all duration-300 hover:text-white nav-link" data-target="skills">
+                        <span class="nav-indicator mr-4 h-[1px] w-8 bg-slate-600 transition-all duration-300 group-hover:w-16 group-hover:bg-white"></span>
+                        Skills
+                    </a>
+                    <a href="#projects" class="group flex items-center py-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 transition-all duration-300 hover:text-white nav-link" data-target="projects">
+                        <span class="nav-indicator mr-4 h-[1px] w-8 bg-slate-600 transition-all duration-300 group-hover:w-16 group-hover:bg-white"></span>
+                        Projects
+                    </a>
+                    <a href="#credentials" class="group flex items-center py-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 transition-all duration-300 hover:text-white nav-link" data-target="credentials">
+                        <span class="nav-indicator mr-4 h-[1px] w-8 bg-slate-600 transition-all duration-300 group-hover:w-16 group-hover:bg-white"></span>
+                        Achievements & Certs
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Social Profiles & Contacts in Sidebar Footer -->
+            <div class="flex flex-col space-y-6 pt-10 lg:pt-0">
+                <div class="flex items-center space-x-5">
+                    <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-brand-400 transition-colors" aria-label="GitHub profile">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-slate-400 hover:text-brand-400 transition-colors" aria-label="LinkedIn profile">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://leetcode.com" target="_blank" class="text-slate-400 hover:text-brand-400 transition-colors" aria-label="LeetCode profile">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </a>
+                </div>
+                <div class="text-sm text-slate-400 space-y-2">
+                    <a href="mailto:akhilmedabalimi65@gmail.com" class="flex items-center space-x-2 text-slate-400 hover:text-brand-400 transition-all duration-200">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>akhilmedabalimi65@gmail.com</span>
+                    </a>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>+91 7013340419</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>Ongole, Andhra Pradesh, India</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN SCROLLING CONTENT PANEL -->
+        <main class="lg:w-7/12 py-12 lg:py-24 space-y-24 lg:space-y-32">
+            
+            <!-- About Section -->
+            <section id="about" class="scroll-mt-24 space-y-6">
+                <div class="lg:hidden">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">01 / About Me</span>
+                </div>
+                <h2 class="text-2xl font-bold tracking-tight text-white lg:sr-only">About Me</h2>
+                <div class="space-y-4 text-slate-300 text-base leading-relaxed">
+                    <p>
+                        I am a Computer Science and Engineering student (2023-2027) with deep experience practicing core computer systems, designing databases, and constructing robust web apps with the 
+                        <strong class="text-brand-400">MERN Stack</strong>.
+                    </p>
+                    <p>
+                        Through structured academic projects and consistent programming practices, I build solutions optimized for fluid user interactions, secure API connectivity, and scalable server structures.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="scroll-mt-24 space-y-8">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">02 / Journey</span>
+                    <h2 class="text-2xl font-bold tracking-tight text-white">Education</h2>
+                </div>
+                <div class="relative pl-6 border-l-2 border-slate-800 space-y-10">
+                    <!-- College -->
+                    <div class="relative">
+                        <!-- Custom node marker -->
+                        <span class="absolute -left-[31px] top-1.5 bg-brand-500 border-4 border-neutral-950 rounded-full h-4 w-4"></span>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-400">
+                                Geethanjali College of Engineering & Technology
+                            </h3>
+                            <span class="text-xs font-mono text-slate-400 bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700/50 whitespace-nowrap mt-1 md:mt-0">
+                                2023 — 2027
+                            </span>
+                        </div>
+                        <p class="text-sm font-medium text-brand-400 mt-1">B.Tech, Computer Science & Engineering</p>
+                        <p class="text-sm text-slate-400 mt-2">CGPA: 6.4</p>
+                    </div>
+
+                    <!-- Intermediate -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 bg-slate-700 border-4 border-neutral-950 rounded-full h-4 w-4"></span>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
+                            <h3 class="text-lg font-bold text-white">
+                                Sri Chaitanya Junior College, Ongole
+                            </h3>
+                            <span class="text-xs font-mono text-slate-400 bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700/50 whitespace-nowrap mt-1 md:mt-0">
+                                2020 — 2022
+                            </span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400 mt-1">Intermediate (MPC)</p>
+                        <p class="text-sm text-slate-400 mt-2">Marks Score: 576</p>
+                    </div>
+
+                    <!-- SSC -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 bg-slate-700 border-4 border-neutral-950 rounded-full h-4 w-4"></span>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
+                            <h3 class="text-lg font-bold text-white">
+                                Chaitanya High School, Ongole
+                            </h3>
+                            <span class="text-xs font-mono text-slate-400 bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700/50 whitespace-nowrap mt-1 md:mt-0">
+                                2019 — 2020
+                            </span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400 mt-1">Secondary School Certificate (SSC)</p>
+                        <p class="text-sm text-slate-400 mt-2">Marks Score: 582</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="scroll-mt-24 space-y-8">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">03 / Toolbelt</span>
+                    <h2 class="text-2xl font-bold tracking-tight text-white">Technical Skills</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card Category 1 -->
+                    <div class="p-5 bg-neutral-900 border border-slate-800/80 rounded-xl hover:border-brand-500/30 transition-all duration-300">
+                        <h3 class="font-bold text-white text-sm uppercase tracking-wider mb-4 text-brand-400">Languages & Core</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Java</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">C</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">JavaScript</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">SQL</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">DSA</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">OOP</span>
+                        </div>
+                    </div>
+
+                    <!-- Card Category 2 -->
+                    <div class="p-5 bg-neutral-900 border border-slate-800/80 rounded-xl hover:border-brand-500/30 transition-all duration-300">
+                        <h3 class="font-bold text-white text-sm uppercase tracking-wider mb-4 text-brand-400">Web Technologies</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">React.js</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Node.js</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Express.js</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">HTML5 / CSS3</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">MySQL</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <!-- Card Category 3 -->
+                    <div class="p-5 bg-neutral-900 border border-slate-800/80 rounded-xl hover:border-brand-500/30 transition-all duration-300 md:col-span-2">
+                        <h3 class="font-bold text-white text-sm uppercase tracking-wider mb-4 text-brand-400">Developer Ecosystem</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Git</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Postman API Tooling</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">VS Code</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Operating Systems</span>
+                            <span class="px-3 py-1.5 bg-neutral-950 border border-slate-800 text-sm rounded-lg text-slate-300">Computer Networks</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="scroll-mt-24 space-y-8">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">04 / Creations</span>
+                    <h2 class="text-2xl font-bold tracking-tight text-white">Full-Stack Projects</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Project 1 -->
+                    <div class="group relative p-6 bg-neutral-900/60 hover:bg-neutral-900 border border-slate-800 hover:border-brand-500/40 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-500/5">
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                                    College Hostel Management System
+                                </h3>
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-white" aria-label="Project Repository">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Developed a comprehensive hostel management environment incorporating secure administrative controllers, fluid room allocation matrices, and high-fidelity student registration databases.
+                            </p>
+                            <!-- Tech tags -->
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">MongoDB</span>
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">Express.js</span>
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">React.js</span>
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group relative p-6 bg-neutral-900/60 hover:bg-neutral-900 border border-slate-800 hover:border-brand-500/40 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-500/5">
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                                    Complaint Management System for College
+                                </h3>
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-white" aria-label="Project Repository">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Engineered an online solution connecting administrative response teams with students. Implemented protected token logins, automated ticket tracking matrices, and robust reporting dashboards.
+                            </p>
+                            <!-- Tech tags -->
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">MongoDB</span>
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">Express.js</span>
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">React.js</span>
+                                <span class="text-xs font-mono px-2 py-1 bg-brand-500/10 text-brand-300 rounded border border-brand-500/20">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications & Achievements Section -->
+            <section id="credentials" class="scroll-mt-24 space-y-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Achievements Panel -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">05 / Milestones</span>
+                            <h2 class="text-xl font-bold text-white">Achievements</h2>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start space-x-3 text-sm text-slate-300">
+                                <span class="text-brand-400 mt-1 font-bold">•</span>
+                                <span>Successfully designed and shipped two multi-tier MERN stack architectures with structured front-end viewports.</span>
+                            </li>
+                            <li class="flex items-start space-x-3 text-sm text-slate-300">
+                                <span class="text-brand-400 mt-1 font-bold">•</span>
+                                <span>Maintained an active engineering output by mastering competitive problem-solving patterns on LeetCode.</span>
+                            </li>
+                            <li class="flex items-start space-x-3 text-sm text-slate-300">
+                                <span class="text-brand-400 mt-1 font-bold">•</span>
+                                <span>Actively joined computer systems webinars, tech camps, and system security programming initiatives.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Certifications Panel -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">06 / Credentials</span>
+                            <h2 class="text-xl font-bold text-white">Certifications</h2>
+                        </div>
+                        <div class="space-y-4 font-sans text-sm">
+                            <div class="p-3 bg-neutral-900 border border-slate-800 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-white">Java Internship Certificate</p>
+                                    <p class="text-xs text-slate-400">SkillDzire</p>
+                                </div>
+                                <i data-lucide="award" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+
+                            <div class="p-3 bg-neutral-900 border border-slate-800 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-white">CCNA Network Professional</p>
+                                    <p class="text-xs text-slate-400">Cisco Networking Academy • 2025</p>
+                                </div>
+                                <i data-lucide="award" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+
+                            <div class="p-3 bg-neutral-900 border border-slate-800 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-white">Python Essentials Badge</p>
+                                    <p class="text-xs text-slate-400">Cisco Networking Academy • 2025</p>
+                                </div>
+                                <i data-lucide="award" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+
+                            <div class="p-3 bg-neutral-900 border border-slate-800 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-white">Database Design with MySQL</p>
+                                    <p class="text-xs text-slate-400">Oracle Academy • 2024</p>
+                                </div>
+                                <i data-lucide="award" class="w-5 h-5 text-brand-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sticky Bottom Mobile Contact CTA -->
+            <footer class="pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Akhil Medabalimi. Powered by high performance tech.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Initiate Lucide vector markers
+        lucide.createIcons();
+
+        // Highlighting logic using Intersection Observer 
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main > section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-30% 0px -60% 0px', // Precise activation trigger
+                threshold: 0
+            };
+
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('data-target') === targetId) {
+                                link.classList.add('nav-active');
+                            } else {
+                                link.classList.remove('nav-active');
+                            }
+                        });
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
